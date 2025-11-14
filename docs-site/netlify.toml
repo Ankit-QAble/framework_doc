@@ -1,0 +1,14 @@
+# Netlify configuration file
+
+[build]
+  # Build command
+  command = "npm run build"
+  
+  # Directory to deploy
+  publish = "build"
+
+[build.environment]
+  # Set the Node.js version. Check Docusaurus docs for the recommended version.
+  NODE_VERSION = "18"
+
+# Redirects and other rules can be added here
