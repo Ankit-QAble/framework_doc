@@ -1,14 +1,17 @@
-# Netlify configuration file
+# Netlify build configuration for static site
+#
+# For more information, see the Netlify documentation:
+# https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  # Build command
-  command = "npm run build"
-  
-  # Directory to deploy
-  publish = "build"
+  command = "echo 'No build step required for static site'"
+  publish = "."
 
-[build.environment]
-  # Set the Node.js version. Check Docusaurus docs for the recommended version.
-  NODE_VERSION = "18"
+[context.production.environment]
+  NODE_VERSION = "20"
 
-# Redirects and other rules can be added here
+# Redirect rules for SPA-like behavior (optional)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,41 +1,37 @@
-# Website
+# Documentation Site
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This is a static documentation site configured for Netlify deployment.
 
-## Installation
+## Structure
 
-```bash
-yarn
-```
+- `docs/` - Documentation files in Markdown format
+- `index.html` - Main landing page
+- `netlify.toml` - Netlify configuration
 
 ## Local Development
 
-```bash
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+To serve the site locally:
 
 ```bash
-yarn build
+npm install
+npm run serve
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Or use any static file server:
+
+```bash
+npx serve .
+```
 
 ## Deployment
 
-Using SSH:
+This site is configured for Netlify. Simply connect your repository to Netlify and it will automatically deploy.
 
-```bash
-USE_SSH=true yarn deploy
-```
+The `netlify.toml` file contains the deployment configuration:
+- No build step required (static site)
+- Publish directory: root directory (`.`)
+- Node version: 20
 
-Not using SSH:
+## Documentation
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+All documentation files are located in the `docs/` directory. They are written in Markdown format and can be viewed directly or converted to HTML as needed.
