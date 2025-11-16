@@ -1,16 +1,20 @@
 # Netlify build configuration for static site
 #
-# For more information, see the Netlify documentation:
-# https://docs.netlify.com/configure-builds/file-based-configuration/
+# IMPORTANT: Make sure in Netlify UI (Site settings > Build & deploy > Build settings):
+# - Build command: Leave empty or set to: echo 'Static site - no build required'
+# - Publish directory: Leave empty or set to: . (root directory)
+# The netlify.toml file should override UI settings, but verify both match.
 
 [build]
-  command = "echo 'No build step required for static site'"
+  # Simple command that always succeeds
+  command = "echo 'Static site - no build required'"
+  # Publish from root directory (not a build directory)
   publish = "."
 
 [context.production.environment]
   NODE_VERSION = "20"
 
-# Redirect rules for SPA-like behavior (optional)
+# Redirect rules for SPA-like behavior
 [[redirects]]
   from = "/*"
   to = "/index.html"
