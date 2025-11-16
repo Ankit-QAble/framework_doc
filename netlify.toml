@@ -1,15 +1,17 @@
 # Netlify build configuration for static site
 #
-# IMPORTANT: Make sure in Netlify UI (Site settings > Build & deploy > Build settings):
-# - Build command: Leave empty or set to: echo 'Static site - no build required'
-# - Publish directory: Leave empty or set to: . (root directory)
-# The netlify.toml file should override UI settings, but verify both match.
+# This configuration copies static files to a 'build' directory during deployment.
+# The build directory is created automatically by the build command.
+#
+# IMPORTANT: In Netlify UI (Site settings > Build & deploy > Build settings):
+# - Build command: Can be left empty (uses netlify.toml) or should match below
+# - Publish directory: Should be set to "build" or left empty (uses netlify.toml)
 
 [build]
-  # Simple command that always succeeds
-  command = "echo 'Static site - no build required'"
-  # Publish from root directory (not a build directory)
-  publish = "."
+  # Copy static files to build directory for Netlify
+  command = "mkdir -p build && cp index.html build/ && cp -r docs build/"
+  # Publish from build directory
+  publish = "build"
 
 [context.production.environment]
   NODE_VERSION = "20"
