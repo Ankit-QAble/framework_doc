@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure - Playwright TypeScript Framework Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">Playwright TypeScript Framework Documentation</a></h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <nav class="sidebar">
+                <h2>Documentation</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intro.html">Introduction</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="azure.html" class="active">Azure</a></li>
+                    <li><a href="browserstack.html">BrowserStack</a></li>
+                    <li><a href="github-actions.html">GitHub Actions</a></li>
+                    <li><a href="grid.html">Grid Setup</a></li>
+                    <li><a href="examples.html">Examples</a></li>
+                    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                </ul>
+            </nav>
+            <main class="main-content" id="content">
+                <div class="loading">Loading...</div>
+            </main>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Playwright TypeScript Framework. Built for Netlify.</p>
+        </div>
+    </footer>
+    <script>
+        // Load Azure documentation index
+        Promise.all([
+            fetch('docs/azure/AZURE_WORKING_GUIDE.md').then(r => r.text()).catch(() => ''),
+            fetch('docs/azure/AZURE_PIPELINES_SETUP.md').then(r => r.text()).catch(() => ''),
+            fetch('docs/azure/AZURE_PLAYWRIGHT_SETUP.md').then(r => r.text()).catch(() => '')
+        ]).then(([workingGuide, pipelinesSetup, playwrightSetup]) => {
+            let html = '<h1>Azure Documentation</h1>';
+            html += '<p>Comprehensive guides for Azure Playwright Testing and Azure Pipelines integration.</p>';
+            
+            html += '<h2>Quick Start Guides</h2><ul>';
+            html += '<li><a href="docs/azure/AZURE_WORKING_GUIDE.md">Azure Working Guide</a> - Tested configuration</li>';
+            html += '<li><a href="docs/azure/AZURE_QUICK_START.md">Azure Quick Start</a> - 5-minute setup</li>';
+            html += '<li><a href="docs/azure/QUICK_START_AZURE.md">Quick Start Azure</a></li>';
+            html += '</ul>';
+            
+            html += '<h2>Setup Guides</h2><ul>';
+            html += '<li><a href="docs/azure/AZURE_PLAYWRIGHT_SETUP.md">Azure Playwright Setup</a></li>';
+            html += '<li><a href="docs/azure/AZURE_PIPELINES_SETUP.md">Azure Pipelines Setup</a></li>';
+            html += '<li><a href="docs/azure/AZURE_SETUP_GUIDE.md">Azure Setup Guide</a></li>';
+            html += '</ul>';
+            
+            html += '<h2>Additional Resources</h2><ul>';
+            html += '<li><a href="docs/azure/AZURE_PIPELINES_QUICK_START.md">Azure Pipelines Quick Start</a></li>';
+            html += '<li><a href="docs/azure/AZURE_PIPELINES_SUMMARY.md">Azure Pipelines Summary</a></li>';
+            html += '<li><a href="docs/azure/AZURE_SUCCESS_SUMMARY.md">Azure Success Summary</a></li>';
+            html += '<li><a href="docs/azure/AZURE_TROUBLESHOOTING.md">Azure Troubleshooting</a></li>';
+            html += '<li><a href="docs/azure/SWITCH_PROVIDER_GUIDE.md">Switch Provider Guide</a></li>';
+            html += '</ul>';
+            
+            // Show first guide content if available
+            if (workingGuide) {
+                const cleaned = workingGuide.replace(/^---[\s\S]*?---\n/, '');
+                html += '<hr><h2>Azure Working Guide</h2>';
+                html += marked.parse(cleaned.substring(0, 2000) + '...');
+                html += '<p><a href="docs/azure/AZURE_WORKING_GUIDE.md">Read full guide →</a></p>';
+            }
+            
+            document.getElementById('content').innerHTML = html;
+        }).catch(error => {
+            document.getElementById('content').innerHTML = '<p>Error loading content: ' + error.message + '</p>';
+        });
+    </script>
+</body>
+</html>
+

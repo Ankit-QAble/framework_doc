@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrowserStack - Playwright TypeScript Framework Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">Playwright TypeScript Framework Documentation</a></h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <nav class="sidebar">
+                <h2>Documentation</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intro.html">Introduction</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="azure.html">Azure</a></li>
+                    <li><a href="browserstack.html" class="active">BrowserStack</a></li>
+                    <li><a href="github-actions.html">GitHub Actions</a></li>
+                    <li><a href="grid.html">Grid Setup</a></li>
+                    <li><a href="examples.html">Examples</a></li>
+                    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                </ul>
+            </nav>
+            <main class="main-content" id="content">
+                <div class="loading">Loading...</div>
+            </main>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Playwright TypeScript Framework. Built for Netlify.</p>
+        </div>
+    </footer>
+    <script>
+        Promise.all([
+            fetch('docs/browserstack/BROWSERSTACK_SETUP.md').then(r => r.text()).catch(() => ''),
+            fetch('docs/browserstack/BROWSERSTACK_WORKING.md').then(r => r.text()).catch(() => '')
+        ]).then(([setup, working]) => {
+            let html = '<h1>BrowserStack Documentation</h1>';
+            html += '<p>Guides for integrating BrowserStack cloud testing with the Playwright framework.</p>';
+            
+            html += '<h2>Available Guides</h2><ul>';
+            html += '<li><a href="docs/browserstack/BROWSERSTACK_SETUP.md">BrowserStack Setup</a> - Configuration guide</li>';
+            html += '<li><a href="docs/browserstack/BROWSERSTACK_WORKING.md">BrowserStack Working Guide</a> - Working configuration</li>';
+            html += '</ul>';
+            
+            // Show setup content if available
+            if (setup) {
+                const cleaned = setup.replace(/^---[\s\S]*?---\n/, '');
+                html += '<hr><h2>BrowserStack Setup</h2>';
+                html += marked.parse(cleaned);
+            }
+            
+            document.getElementById('content').innerHTML = html;
+        }).catch(error => {
+            document.getElementById('content').innerHTML = '<p>Error loading content: ' + error.message + '</p>';
+        });
+    </script>
+</body>
+</html>
+

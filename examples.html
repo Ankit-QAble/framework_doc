@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples - Playwright TypeScript Framework Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">Playwright TypeScript Framework Documentation</a></h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <nav class="sidebar">
+                <h2>Documentation</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intro.html">Introduction</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="azure.html">Azure</a></li>
+                    <li><a href="browserstack.html">BrowserStack</a></li>
+                    <li><a href="github-actions.html">GitHub Actions</a></li>
+                    <li><a href="grid.html">Grid Setup</a></li>
+                    <li><a href="examples.html" class="active">Examples</a></li>
+                    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                </ul>
+            </nav>
+            <main class="main-content" id="content">
+                <div class="loading">Loading...</div>
+            </main>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Playwright TypeScript Framework. Built for Netlify.</p>
+        </div>
+    </footer>
+    <script>
+        let html = '<h1>Code Examples</h1>';
+        html += '<p>Practical code examples and use cases for the Playwright TypeScript Framework.</p>';
+        
+        html += '<h2>Available Examples</h2><ul>';
+        html += '<li><a href="docs/examples/faker-library.md">Faker Library</a> - Using faker for test data</li>';
+        html += '<li><a href="docs/examples/file-upload.md">File Upload</a> - File upload examples</li>';
+        html += '<li><a href="docs/examples/grid-example.md">Grid Example</a> - Grid configuration examples</li>';
+        html += '<li><a href="docs/examples/iframe-handling.md">Iframe Handling</a> - Working with iframes</li>';
+        html += '</ul>';
+        
+        // Try to load and show first example
+        fetch('docs/examples/faker-library.md')
+            .then(response => response.text())
+            .then(markdown => {
+                const cleaned = markdown.replace(/^---[\s\S]*?---\n/, '');
+                html += '<hr><h2>Faker Library Example</h2>';
+                html += marked.parse(cleaned.substring(0, 1500) + '...');
+                html += '<p><a href="docs/examples/faker-library.md">Read full example →</a></p>';
+                document.getElementById('content').innerHTML = html;
+            })
+            .catch(() => {
+                document.getElementById('content').innerHTML = html;
+            });
+    </script>
+</body>
+</html>
+

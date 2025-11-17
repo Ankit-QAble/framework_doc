@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Setup - Playwright TypeScript Framework Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">Playwright TypeScript Framework Documentation</a></h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <nav class="sidebar">
+                <h2>Documentation</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intro.html">Introduction</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="azure.html">Azure</a></li>
+                    <li><a href="browserstack.html">BrowserStack</a></li>
+                    <li><a href="github-actions.html">GitHub Actions</a></li>
+                    <li><a href="grid.html" class="active">Grid Setup</a></li>
+                    <li><a href="examples.html">Examples</a></li>
+                    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                </ul>
+            </nav>
+            <main class="main-content" id="content">
+                <div class="loading">Loading...</div>
+            </main>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Playwright TypeScript Framework. Built for Netlify.</p>
+        </div>
+    </footer>
+    <script>
+        Promise.all([
+            fetch('docs/grid/GRID_SETUP.md').then(r => r.text()).catch(() => ''),
+            fetch('docs/grid/GRID_SETUP_COMPLETE.md').then(r => r.text()).catch(() => ''),
+            fetch('docs/grid/MULTI_PROVIDER_SETUP.md').then(r => r.text()).catch(() => '')
+        ]).then(([setup, complete, multiProvider]) => {
+            let html = '<h1>Grid Setup Documentation</h1>';
+            html += '<p>Guides for setting up Selenium Grid and multi-provider configurations.</p>';
+            
+            html += '<h2>Available Guides</h2><ul>';
+            html += '<li><a href="docs/grid/GRID_SETUP.md">Grid Setup</a> - Basic grid setup</li>';
+            html += '<li><a href="docs/grid/GRID_SETUP_COMPLETE.md">Grid Setup Complete</a> - Complete guide</li>';
+            html += '<li><a href="docs/grid/GRID_QUICK_REFERENCE.md">Grid Quick Reference</a> - Quick reference</li>';
+            html += '<li><a href="docs/grid/MULTI_PROVIDER_SETUP.md">Multi-Provider Setup</a> - Multi-provider configuration</li>';
+            html += '<li><a href="docs/grid/MULTI_PROVIDER_COMPLETE.md">Multi-Provider Complete</a> - Complete multi-provider guide</li>';
+            html += '</ul>';
+            
+            // Show setup content if available
+            if (setup) {
+                const cleaned = setup.replace(/^---[\s\S]*?---\n/, '');
+                html += '<hr><h2>Grid Setup</h2>';
+                html += marked.parse(cleaned.substring(0, 2000) + '...');
+                html += '<p><a href="docs/grid/GRID_SETUP.md">Read full guide →</a></p>';
+            }
+            
+            document.getElementById('content').innerHTML = html;
+        }).catch(error => {
+            document.getElementById('content').innerHTML = '<p>Error loading content: ' + error.message + '</p>';
+        });
+    </script>
+</body>
+</html>
+
