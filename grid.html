@@ -49,11 +49,11 @@
             html += '<p>Guides for setting up Selenium Grid and multi-provider configurations.</p>';
             
             html += '<h2>Available Guides</h2><ul>';
-            html += '<li><a href="docs/grid/GRID_SETUP.md">Grid Setup</a> - Basic grid setup</li>';
-            html += '<li><a href="docs/grid/GRID_SETUP_COMPLETE.md">Grid Setup Complete</a> - Complete guide</li>';
-            html += '<li><a href="docs/grid/GRID_QUICK_REFERENCE.md">Grid Quick Reference</a> - Quick reference</li>';
-            html += '<li><a href="docs/grid/MULTI_PROVIDER_SETUP.md">Multi-Provider Setup</a> - Multi-provider configuration</li>';
-            html += '<li><a href="docs/grid/MULTI_PROVIDER_COMPLETE.md">Multi-Provider Complete</a> - Complete multi-provider guide</li>';
+            html += '<li><a href="html/grid/grid-grid_setup.html">Grid Setup</a> - Basic grid setup</li>';
+            html += '<li><a href="html/grid/grid-grid_setup_complete.html">Grid Setup Complete</a> - Complete guide</li>';
+            html += '<li><a href="html/grid/grid-grid_quick_reference.html">Grid Quick Reference</a> - Quick reference</li>';
+            html += '<li><a href="html/grid/grid-multi_provider_setup.html">Multi-Provider Setup</a> - Multi-provider configuration</li>';
+            html += '<li><a href="html/grid/grid-multi_provider_complete.html">Multi-Provider Complete</a> - Complete multi-provider guide</li>';
             html += '</ul>';
             
             // Show setup content if available
@@ -61,7 +61,7 @@
                 const cleaned = setup.replace(/^---[\s\S]*?---\n/, '');
                 html += '<hr><h2>Grid Setup</h2>';
                 html += marked.parse(cleaned.substring(0, 2000) + '...');
-                html += '<p><a href="docs/grid/GRID_SETUP.md">Read full guide →</a></p>';
+                html += '<p><a href="html/grid/grid-grid_setup.html">Read full guide →</a></p>';
             }
             
             document.getElementById('content').innerHTML = html;

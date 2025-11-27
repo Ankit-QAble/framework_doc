@@ -49,9 +49,9 @@
             html += '<p>CI/CD setup and configuration guides for GitHub Actions workflows.</p>';
             
             html += '<h2>Available Guides</h2><ul>';
-            html += '<li><a href="docs/github-actions/GITHUB_ACTIONS_SETUP.md">GitHub Actions Setup</a> - Complete setup guide</li>';
-            html += '<li><a href="docs/github-actions/GITHUB_ACTIONS_QUICK_REFERENCE.md">Quick Reference</a> - Quick command reference</li>';
-            html += '<li><a href="docs/github-actions/GITHUB_ACTIONS_SUMMARY.md">Summary</a> - Setup summary</li>';
+            html += '<li><a href="html/github-actions/github-actions-github_actions_setup.html">GitHub Actions Setup</a> - Complete setup guide</li>';
+            html += '<li><a href="html/github-actions/github-actions-github_actions_quick_reference.html">Quick Reference</a> - Quick command reference</li>';
+            html += '<li><a href="html/github-actions/github-actions-github_actions_summary.html">Summary</a> - Setup summary</li>';
             html += '</ul>';
             
             // Show setup content if available
@@ -59,7 +59,7 @@
                 const cleaned = setup.replace(/^---[\s\S]*?---\n/, '');
                 html += '<hr><h2>GitHub Actions Setup</h2>';
                 html += marked.parse(cleaned.substring(0, 2000) + '...');
-                html += '<p><a href="docs/github-actions/GITHUB_ACTIONS_SETUP.md">Read full guide →</a></p>';
+                html += '<p><a href="html/github-actions/github-actions-github_actions_setup.html">Read full guide →</a></p>';
             }
             
             document.getElementById('content').innerHTML = html;

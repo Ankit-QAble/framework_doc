@@ -50,23 +50,23 @@
             html += '<p>Comprehensive guides for Azure Playwright Testing and Azure Pipelines integration.</p>';
             
             html += '<h2>Quick Start Guides</h2><ul>';
-            html += '<li><a href="docs/azure/AZURE_WORKING_GUIDE.md">Azure Working Guide</a> - Tested configuration</li>';
-            html += '<li><a href="docs/azure/AZURE_QUICK_START.md">Azure Quick Start</a> - 5-minute setup</li>';
-            html += '<li><a href="docs/azure/QUICK_START_AZURE.md">Quick Start Azure</a></li>';
+            html += '<li><a href="html/azure/azure-azure_working_guide.html">Azure Working Guide</a> - Tested configuration</li>';
+            html += '<li><a href="html/azure/azure-azure_quick_start.html">Azure Quick Start</a> - 5-minute setup</li>';
+            html += '<li><a href="html/azure/azure-quick_start_azure.html">Quick Start Azure</a></li>';
             html += '</ul>';
             
             html += '<h2>Setup Guides</h2><ul>';
-            html += '<li><a href="docs/azure/AZURE_PLAYWRIGHT_SETUP.md">Azure Playwright Setup</a></li>';
-            html += '<li><a href="docs/azure/AZURE_PIPELINES_SETUP.md">Azure Pipelines Setup</a></li>';
-            html += '<li><a href="docs/azure/AZURE_SETUP_GUIDE.md">Azure Setup Guide</a></li>';
+            html += '<li><a href="html/azure/azure-azure_playwright_setup.html">Azure Playwright Setup</a></li>';
+            html += '<li><a href="html/azure/azure-azure_pipelines_setup.html">Azure Pipelines Setup</a></li>';
+            html += '<li><a href="html/azure/azure-azure_setup_guide.html">Azure Setup Guide</a></li>';
             html += '</ul>';
             
             html += '<h2>Additional Resources</h2><ul>';
-            html += '<li><a href="docs/azure/AZURE_PIPELINES_QUICK_START.md">Azure Pipelines Quick Start</a></li>';
-            html += '<li><a href="docs/azure/AZURE_PIPELINES_SUMMARY.md">Azure Pipelines Summary</a></li>';
-            html += '<li><a href="docs/azure/AZURE_SUCCESS_SUMMARY.md">Azure Success Summary</a></li>';
-            html += '<li><a href="docs/azure/AZURE_TROUBLESHOOTING.md">Azure Troubleshooting</a></li>';
-            html += '<li><a href="docs/azure/SWITCH_PROVIDER_GUIDE.md">Switch Provider Guide</a></li>';
+            html += '<li><a href="html/azure/azure-azure_pipelines_quick_start.html">Azure Pipelines Quick Start</a></li>';
+            html += '<li><a href="html/azure/azure-azure_pipelines_summary.html">Azure Pipelines Summary</a></li>';
+            html += '<li><a href="html/azure/azure-azure_success_summary.html">Azure Success Summary</a></li>';
+            html += '<li><a href="html/azure/azure-azure_troubleshooting.html">Azure Troubleshooting</a></li>';
+            html += '<li><a href="html/azure/azure-switch_provider_guide.html">Switch Provider Guide</a></li>';
             html += '</ul>';
             
             // Show first guide content if available
@@ -74,7 +74,7 @@
                 const cleaned = workingGuide.replace(/^---[\s\S]*?---\n/, '');
                 html += '<hr><h2>Azure Working Guide</h2>';
                 html += marked.parse(cleaned.substring(0, 2000) + '...');
-                html += '<p><a href="docs/azure/AZURE_WORKING_GUIDE.md">Read full guide →</a></p>';
+                html += '<p><a href="html/azure/azure-azure_working_guide.html">Read full guide →</a></p>';
             }
             
             document.getElementById('content').innerHTML = html;

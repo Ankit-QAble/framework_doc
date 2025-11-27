@@ -9,25 +9,9 @@
 
 [build]
   # Copy all static files to build directory for Netlify
-  command = "mkdir -p build && cp *.html build/ 2>/dev/null || true && cp *.css build/ 2>/dev/null || true && cp -r docs build/ 2>/dev/null || true && cp _redirects build/ 2>/dev/null || true"
+  command = "mkdir -p build && cp *.html build/ 2>/dev/null || true && cp *.css build/ 2>/dev/null || true && cp -r docs build/ 2>/dev/null || true && cp -r html build/ 2>/dev/null || true && cp _redirects build/ 2>/dev/null || true"
   # Publish from build directory
   publish = "build"
-
-# Redirect all markdown files to viewer.html
-[[redirects]]
-  from = "/docs/**/*.md"
-  to = "/viewer.html?file=/docs/:splat.md"
-  status = 200
-
-[[redirects]]
-  from = "/docs/*.md"
-  to = "/viewer.html?file=/docs/:splat.md"
-  status = 200
-
-[[redirects]]
-  from = "/*.md"
-  to = "/viewer.html?file=/:splat.md"
-  status = 200
 
 [context.production.environment]
   NODE_VERSION = "20"

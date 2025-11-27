@@ -30,8 +30,8 @@
                 </ul>
                 <h2 style="margin-top: 2rem;">Examples</h2>
                 <ul>
-                    <li><a href="basepage-examples.html">BasePage Examples</a></li>
-                    <li><a href="basetest-examples.html">BaseTest Examples</a></li>
+                    <li><a href="html/examples/basepage-examples.html">BasePage Examples</a></li>
+                    <li><a href="html/examples/basetest-examples.html">BaseTest Examples</a></li>
                     <li><a href="examples.html" class="active">All Examples</a></li>
                 </ul>
             </nav>
@@ -50,18 +50,18 @@
         html += '<p>Practical code examples and use cases for the Playwright TypeScript Framework.</p>';
         
         html += '<h2>Available Examples</h2><ul>';
-        html += '<li><a href="basepage-examples.html">BasePage Examples</a> - BasePage class usage examples</li>';
-        html += '<li><a href="basetest-examples.html">BaseTest Examples</a> - BaseTest class usage examples</li>';
-        html += '<li><a href="docs/examples/simple-test-example.md">Simple Test Example</a> - Basic test structure examples</li>';
-        html += '<li><a href="docs/examples/faker-library.md">Faker Library</a> - Using faker for test data</li>';
-        html += '<li><a href="docs/examples/file-upload.md">File Upload</a> - File upload examples</li>';
-        html += '<li><a href="docs/examples/grid-example.md">Grid Example</a> - Grid configuration examples</li>';
-        html += '<li><a href="docs/examples/iframe-handling.md">Iframe Handling</a> - Working with iframes</li>';
-        html += '<li><a href="docs/examples/json-data-example.md">JSON Data Example</a> - Working with JSON test data</li>';
-        html += '<li><a href="docs/examples/csv-data-example.md">CSV Data Example</a> - Working with CSV test data</li>';
-        html += '<li><a href="docs/examples/excel-data-example.md">Excel Data Example</a> - Working with Excel test data</li>';
-        html += '<li><a href="docs/examples/console-log-capture-example.md">Console Log Capture</a> - Capturing browser console logs</li>';
-        html += '<li><a href="docs/examples/network-request-capture-example.md">Network Request Capture</a> - Capturing network requests</li>';
+        html += '<li><a href="html/examples/basepage-examples.html">BasePage Examples</a> - BasePage class usage examples</li>';
+        html += '<li><a href="html/examples/basetest-examples.html">BaseTest Examples</a> - BaseTest class usage examples</li>';
+        html += '<li><a href="html/examples/examples-simple-test-example.html">Simple Test Example</a> - Basic test structure examples</li>';
+        html += '<li><a href="html/examples/examples-faker-library.html">Faker Library</a> - Using faker for test data</li>';
+        html += '<li><a href="html/examples/examples-file-upload.html">File Upload</a> - File upload examples</li>';
+        html += '<li><a href="html/examples/examples-grid-example.html">Grid Example</a> - Grid configuration examples</li>';
+        html += '<li><a href="html/examples/examples-iframe-handling.html">Iframe Handling</a> - Working with iframes</li>';
+        html += '<li><a href="html/examples/examples-json-data-example.html">JSON Data Example</a> - Working with JSON test data</li>';
+        html += '<li><a href="html/examples/examples-csv-data-example.html">CSV Data Example</a> - Working with CSV test data</li>';
+        html += '<li><a href="html/examples/examples-excel-data-example.html">Excel Data Example</a> - Working with Excel test data</li>';
+        html += '<li><a href="html/examples/examples-console-log-capture-example.html">Console Log Capture</a> - Capturing browser console logs</li>';
+        html += '<li><a href="html/examples/examples-network-request-capture-example.html">Network Request Capture</a> - Capturing network requests</li>';
         html += '</ul>';
         
         // Try to load and show first example
@@ -71,7 +71,7 @@
                 const cleaned = markdown.replace(/^---[\s\S]*?---\n/, '');
                 html += '<hr><h2>Faker Library Example</h2>';
                 html += marked.parse(cleaned.substring(0, 1500) + '...');
-                html += '<p><a href="docs/examples/faker-library.md">Read full example →</a></p>';
+                html += '<p><a href="html/examples/examples-faker-library.html">Read full example →</a></p>';
                 document.getElementById('content').innerHTML = html;
             })
             .catch(() => {

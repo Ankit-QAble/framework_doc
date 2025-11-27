@@ -2,11 +2,5 @@
 # This file handles routing for the static site
 # It will be copied to the build directory during deployment
 
-# Redirect all .md files to viewer.html with file parameter
-# Match files in docs subdirectories (e.g., /docs/examples/file.md -> /viewer.html?file=/docs/examples/file.md)
-/docs/**/*.md /viewer.html?file=/docs/:splat.md 200
-# Match files directly in docs (e.g., /docs/file.md -> /viewer.html?file=/docs/file.md)
-/docs/*.md /viewer.html?file=/docs/:splat.md 200
-# Match any other .md files in root (e.g., /file.md -> /viewer.html?file=/file.md)
-/*.md /viewer.html?file=/:splat.md 200
+# Optional: Redirect .md files to HTML if needed (currently using individual HTML files)
 
