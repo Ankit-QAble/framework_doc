@@ -8,8 +8,8 @@
 # - Publish directory: Should be set to "build" or left empty (uses netlify.toml)
 
 [build]
-  # Copy static files to build directory for Netlify
-  command = "mkdir -p build && cp *.html build/ && cp *.css build/ && cp -r docs build/"
+  # Copy all static files to build directory for Netlify
+  command = "mkdir -p build && cp *.html build/ 2>/dev/null || true && cp *.css build/ 2>/dev/null || true && cp -r docs build/ 2>/dev/null || true && cp _redirects build/ 2>/dev/null || true"
   # Publish from build directory
   publish = "build"
 

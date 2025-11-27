@@ -1,0 +1,4 @@
+# Netlify redirects file
+# This file handles routing for the static site
+# It will be copied to the build directory during deployment
+
