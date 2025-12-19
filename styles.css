@@ -100,6 +100,28 @@ header {
     align-items: center;
 }
 
+.header-logo {
+    height: 32px;
+    width: auto;
+    margin-right: 0.75rem;
+}
+
+.logo-light {
+    display: block;
+}
+
+.logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+    display: block;
+}
+
 /* Header Navigation */
 .header-nav {
     display: flex;
@@ -244,59 +266,6 @@ header h1 a:hover {
     padding: 2.5rem 0;
     max-width: 900px;
     margin: 0 auto;
-}
-
-/* Sidebar */
-.sidebar {
-    background: var(--bg-sidebar);
-    backdrop-filter: blur(12px);
-    padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
-    position: sticky;
-    top: 5.5rem;
-    max-height: calc(100vh - 6rem);
-    overflow-y: auto;
-}
-
-.sidebar h2 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.sidebar ul {
-    list-style: none;
-    margin-bottom: 2rem;
-}
-
-.sidebar li {
-    margin-bottom: 0.25rem;
-}
-
-.sidebar a {
-    display: block;
-    padding: 0.5rem 0.75rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-radius: var(--radius-md);
-    font-size: 0.9375rem;
-    font-weight: 500;
-    transition: all 0.2s;
-}
-
-.sidebar a:hover {
-    background: var(--bg-code);
-    color: var(--primary-color);
-}
-
-.sidebar a.active {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    box-shadow: var(--shadow-glow);
 }
 
 /* Main Content */
@@ -473,23 +442,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .content {
-        grid-template-columns: 240px 1fr;
-        gap: 1.5rem;
-    }
+    /* Adjustments for tablets if needed */
 }
 
 @media (max-width: 768px) {
-    .content {
-        grid-template-columns: 1fr;
-    }
-    
-    .sidebar {
-        position: static;
-        max-height: none;
-        margin-bottom: 2rem;
-    }
-    
     .main-content {
         padding: 1.5rem;
     }

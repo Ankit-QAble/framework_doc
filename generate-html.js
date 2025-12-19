@@ -22,7 +22,13 @@ const htmlTemplate = (title, mdPath, sidebarSection = '', depth = '') => {
 <body>
     <header>
         <div class="container header-content">
-            <h1><a href="${indexPath}">Playwright TypeScript Framework</a></h1>
+            <h1>
+                <a href="${indexPath}" style="display: flex; align-items: center;">
+                    <img src="${depth}assets/logo-light.png" class="header-logo logo-light" alt="Logo">
+                    <img src="${depth}assets/logo-dark.png" class="header-logo logo-dark" alt="Logo">
+                    Playwright TypeScript Framework
+                </a>
+            </h1>
             <nav class="header-nav">
                 <ul>
                     <li><a href="${indexPath}">Home</a></li>
