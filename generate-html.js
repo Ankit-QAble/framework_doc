@@ -24,8 +24,8 @@ const htmlTemplate = (title, mdPath, sidebarSection = '', depth = '') => {
         <div class="container header-content">
             <h1>
                 <a href="${indexPath}" style="display: flex; align-items: center;">
-                    <img src="${depth}assets/logo-light.png" class="header-logo logo-light" alt="Logo">
-                    <img src="${depth}assets/logo-dark.svg" class="header-logo logo-dark" alt="Logo">
+                    <img src="${depth}assets/logo-light-v2.png" class="header-logo logo-light" alt="Logo">
+                    <img src="${depth}assets/logo-dark-v2.svg" class="header-logo logo-dark" alt="Logo">
                     Playwright TypeScript Framework
                 </a>
             </h1>
