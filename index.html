@@ -5,86 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playwright TypeScript Framework Documentation</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Initialize theme immediately to prevent flash
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1><a href="index.html">Playwright TypeScript Framework Documentation</a></h1>
-        </div>
-    </header>
-    <div class="container">
-        <div class="content">
-            <nav class="sidebar">
-                <h2>Documentation</h2>
+        <div class="container header-content">
+            <h1><a href="index.html">Playwright TypeScript Framework</a></h1>
+            <nav class="header-nav">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="intro.html">Introduction</a></li>
-                    <li><a href="getting-started.html">Getting Started</a></li>
-                    <li><a href="azure.html">Azure</a></li>
-                    <li><a href="browserstack.html">BrowserStack</a></li>
-                    <li><a href="github-actions.html">GitHub Actions</a></li>
-                    <li><a href="grid.html">Grid Setup</a></li>
-                    <li><a href="examples.html">Examples</a></li>
-                    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="intro.html">Documents</a>
+                        <div class="dropdown-content">
+                            <a href="intro.html">Introduction</a>
+                            <a href="getting-started.html">Getting Started</a>
+                            <a href="html/getting-started/getting-started-FRAMEWORK_CHEATSHEET.html">Cheatsheet</a>
+                            <a href="azure.html">Azure</a>
+                            <a href="browserstack.html">BrowserStack</a>
+                            <a href="github-actions.html">GitHub Actions</a>
+                            <a href="grid.html">Grid Setup</a>
+                            <a href="examples.html">Examples</a>
+                            <a href="troubleshooting.html">Troubleshooting</a>
+                            <a href="html/accessibility-testing-accessibility-testing.html">Accessibility</a>
+                        </div>
+                    </li>
+                    <li><a href="html/about-about.html">About</a></li>
                 </ul>
             </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div></header>
+    <div class="container">
+        <div class="content">
+            
             <main class="main-content">
                 <h1>Welcome to Playwright TypeScript Framework</h1>
-                <p style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2rem;">Comprehensive web automation framework with Playwright, TypeScript, and cloud testing capabilities.</p>
+                <p>Comprehensive web automation framework with Playwright, TypeScript, and cloud testing capabilities.</p>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-                    <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-                        <h3 style="margin-top: 0; color: var(--primary-color);">📚 Introduction</h3>
-                        <p style="margin-bottom: 1rem; font-size: 0.9375rem;">Framework overview and features</p>
-                        <a href="intro.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all 0.2s ease;">Get Started →</a>
-                    </div>
+                <div class="card-grid">
+                    <a href="intro.html" class="card">
+                        <h3>📚 Introduction</h3>
+                        <p>Framework overview and features</p>
+                    </a>
                     
-                    <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-                        <h3 style="margin-top: 0; color: var(--primary-color);">🚀 Getting Started</h3>
-                        <p style="margin-bottom: 1rem; font-size: 0.9375rem;">Framework documentation and Playwright configuration</p>
-                        <a href="getting-started.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all 0.2s ease;">Learn More →</a>
-                    </div>
+                    <a href="getting-started.html" class="card">
+                        <h3>🚀 Getting Started</h3>
+                        <p>Framework documentation and Playwright configuration</p>
+                    </a>
                     
-                    <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-                        <h3 style="margin-top: 0; color: var(--primary-color);">☁️ Azure</h3>
-                        <p style="margin-bottom: 1rem; font-size: 0.9375rem;">Azure Pipelines setup and configuration guides</p>
-                        <a href="azure.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all 0.2s ease;">View Docs →</a>
-                    </div>
+                    <a href="html/getting-started/getting-started-FRAMEWORK_CHEATSHEET.html" class="card">
+                        <h3>📋 Cheatsheet</h3>
+                        <p>Quick reference for framework utilities</p>
+                    </a>
                     
-                    <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-                        <h3 style="margin-top: 0; color: var(--primary-color);">🌐 BrowserStack</h3>
-                        <p style="margin-bottom: 1rem; font-size: 0.9375rem;">BrowserStack integration guides</p>
-                        <a href="browserstack.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all 0.2s ease;">View Docs →</a>
-                    </div>
+                    <a href="azure.html" class="card">
+                        <h3>☁️ Azure</h3>
+                        <p>Azure Pipelines setup and configuration guides</p>
+                    </a>
                     
-                    <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-                        <h3 style="margin-top: 0; color: var(--primary-color);">⚙️ GitHub Actions</h3>
-                        <p style="margin-bottom: 1rem; font-size: 0.9375rem;">CI/CD setup with GitHub Actions</p>
-                        <a href="github-actions.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all 0.2s ease;">View Docs →</a>
-                    </div>
+                    <a href="browserstack.html" class="card">
+                        <h3>🌐 BrowserStack</h3>
+                        <p>BrowserStack integration guides</p>
+                    </a>
                     
-                    <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-                        <h3 style="margin-top: 0; color: var(--primary-color);">🔧 Grid Setup</h3>
-                        <p style="margin-bottom: 1rem; font-size: 0.9375rem;">Grid setup and multi-provider configuration</p>
-                        <a href="grid.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all 0.2s ease;">View Docs →</a>
-                    </div>
+                    <a href="github-actions.html" class="card">
+                        <h3>⚙️ GitHub Actions</h3>
+                        <p>CI/CD setup with GitHub Actions</p>
+                    </a>
                     
-                    <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-                        <h3 style="margin-top: 0; color: var(--primary-color);">💡 Examples</h3>
-                        <p style="margin-bottom: 1rem; font-size: 0.9375rem;">Code examples and use cases</p>
-                        <a href="examples.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all 0.2s ease;">View Examples →</a>
-                    </div>
+                    <a href="grid.html" class="card">
+                        <h3>🔧 Grid Setup</h3>
+                        <p>Grid setup and multi-provider configuration</p>
+                    </a>
                     
-                    <div style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-                        <h3 style="margin-top: 0; color: var(--primary-color);">🔍 Troubleshooting</h3>
-                        <p style="margin-bottom: 1rem; font-size: 0.9375rem;">Common issues and solutions</p>
-                        <a href="troubleshooting.html" style="display: inline-block; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all 0.2s ease;">View Guide →</a>
-                    </div>
+                    <a href="examples.html" class="card">
+                        <h3>💡 Examples</h3>
+                        <p>Code examples and use cases</p>
+                    </a>
+                    
+                    <a href="troubleshooting.html" class="card">
+                        <h3>🔍 Troubleshooting</h3>
+                        <p>Common issues and solutions</p>
+                    </a>
+                    
+                    <a href="html/accessibility-testing-accessibility-testing.html" class="card">
+                        <h3>♿ Accessibility</h3>
+                        <p>Accessibility testing guidelines</p>
+                    </a>
                 </div>
                 
                 <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); padding: 2rem; border-radius: var(--radius-lg); color: white; margin-top: 2rem;">
                     <h2 style="color: white; margin-top: 0; border: none;">📖 Documentation</h2>
-                    <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 0;">All documentation files are in Markdown format and located in the <code style="background: rgba(255, 255, 255, 0.2); color: white; padding: 0.25em 0.5em; border-radius: var(--radius-sm);">docs</code> directory. Each section is organized for easy navigation and quick access.</p>
+                    <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 0;">All documentation files are in Markdown format and located in the <code>docs</code> directory. Each section is organized for easy navigation and quick access.</p>
                 </div>
             </main>
         </div>
@@ -94,6 +112,33 @@
             <p>&copy; 2024 Playwright TypeScript Framework. Built for Netlify.</p>
         </div>
     </footer>
+    <script>
+        // Theme Toggle Logic
+        const toggleButton = document.getElementById('theme-toggle');
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+
+        function updateIcons(theme) {
+            if (theme === 'dark') {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            } else {
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            }
+        }
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        updateIcons(currentTheme);
+
+        toggleButton.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcons(newTheme);
+        });
+    </script>
 </body>
 </html>
-
